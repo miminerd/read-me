@@ -1,0 +1,13 @@
+<div class="card flex justify-center">
+  <p-selectbutton
+    [options]="stateOptions"
+    [(ngModel)]="value"
+    optionLabel="label"
+    optionValue="value"
+    (click)= "sendFormat(value)"
+  >
+    <ng-template #item let-item>
+      <i [class]="item.icon"></i>
+    </ng-template>
+  </p-selectbutton>
+</div>

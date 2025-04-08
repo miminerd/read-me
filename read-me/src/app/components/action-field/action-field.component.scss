@@ -1,0 +1,16 @@
+
+@use './../../styles/variables' as *;
+
+.textarea-size {
+  padding: $space-unit * 2;
+}
+
+.editable-textarea {
+  padding: $space-unit * 2;
+  background: transparent;
+  resize: vertical;
+  outline: none;
+  min-width: $space-unit *70;
+  min-height: $space-unit * 20;
+  border-color: var(--p-slate-800);
+}

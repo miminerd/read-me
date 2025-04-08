@@ -1,4 +1,17 @@
-@import "@fontsource/lato";
+@use "@fontsource/lato";
+@use "primeflex/primeflex.scss";
+@use "primeicons/primeicons.css";
+@use "@fortawesome/fontawesome-free/css/all.css";
+
 html {
   font-family: "Lato";
+}
+code {
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  padding: 2px 4px;
+  color: #333;
+}
+strong {
+  font-weight: 900;
 }

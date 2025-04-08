@@ -1,0 +1,16 @@
+<form [formGroup]="textFieldForm">
+  <span class="flex align-items-center relative">
+    <textarea
+      class="editable-textarea block w-full"
+      rows="1"
+      cols="2"
+      pTextarea
+      formControlName="value"
+      placeholder="type new value"
+      data-testid="active-text-field"
+      pAutoFocus
+      [autofocus]="true"
+    ></textarea>
+ <!--TODO add a clear btn here-->
+  </span>
+</form>

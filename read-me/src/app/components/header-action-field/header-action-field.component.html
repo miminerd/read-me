@@ -1,0 +1,38 @@
+<div class="flex flex-row">
+  <form
+    #targetItemContainer
+    data-testid="target-item-container"
+    [formGroup]="targetForm"
+    class="flex w-full align-items-center"
+    (click)="onItemClick()"
+    (keyup.enter)="activateEditMode()"
+    tabindex
+  >
+    <div
+      class="flex flex-row align-items-center flex-grow-1 pr-2 min-heigh-cell"
+    >
+      <!--active action content-->
+      @if (isEditModeActive()) {
+      <div class="w-full justify-content-end mt-5 pt-2" formGroupName="itemValue">
+        <app-action-field formControlName="value"></app-action-field>
+      </div>
+
+      } @else {
+      <div
+        [innerHTML]="getValue() | textStyle : targetFormat : selectedText"
+      ></div>
+      }
+    </div>
+  </form>
+  @if (isEditModeActive()) {
+  <div class="flex absolute z-3">
+    <app-action-set (setFormat)="formatText($event)"></app-action-set>
+    <p-button
+      icon="pi pi-check"
+      [outlined]="true"
+      [attr.data-testid]="'check'"
+      (click)="deactivateEditMode()"
+    />
+  </div>
+  }
+</div>
