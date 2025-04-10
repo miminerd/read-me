@@ -45,10 +45,10 @@ import { TextFormatting } from "../../types/types";
 	],
 })
 export class HeaderActionFieldComponent {
+	defaultValue = input("default");
 	private readonly destroyRef = inject(DestroyRef);
 	readonly canEdit = input(false);
 	protected readonly isEditModeActive = signal(false);
-
 	selectedText: string | undefined;
 	targetFormat: TextFormatting = "default";
 
@@ -79,24 +79,11 @@ export class HeaderActionFieldComponent {
 	}
 
 	activateEditMode() {
-		/*if (!this.canEdit() || this.targetForm.disabled) {
-      return;
-    };*/
 		this.isEditModeActive.set(true);
-
-		/*this.outsideClickSubscription = fromOutsideClickEvent(
-      this.targetItemContainer.nativeElement
-    )
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe(() => {
-        if (this.canLeaveEditMode) {
-          this.deactivateEditMode();
-        }
-      });*/
 	}
 
 	getValue() {
-		return this.targetForm.value.itemValue!.value;
+		return this.targetForm.value.itemValue!.value || this.defaultValue();
 	}
 	deactivateEditMode() {
 		this.isEditModeActive.set(false);

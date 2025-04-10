@@ -10,8 +10,12 @@ import { HeaderActionFieldComponent } from "../header-action-field/header-action
 	styleUrl: "./editable-table.component.scss",
 })
 export class EditableTableComponent {
-	products = [
-		{ code: "eeee ", name: "Juda ", category: "GMG", quantity: 4 },
-		{ code: "ahae ", name: "Rubz ", category: "Lih", quantity: 2 },
+	items = [
+		{ parameter: "id ", type: "required", description: "unique identifier" },
+		{
+			parameter: "version ",
+			type: "required",
+			description: "current version of deployment",
+		},
 	];
 }

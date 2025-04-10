@@ -1,19 +1,16 @@
-<p-table [value]="products"
-showGridlines>
+<p-table [value]="items" showGridlines>
   <ng-template #header>
     <tr>
-        <th><app-header-action-field></app-header-action-field></th>
-      <th>Code</th>
-      <th>Name</th>
-      <th>Category</th>
+      <th><app-header-action-field [defaultValue]="'Parameter'" ></app-header-action-field></th>
+      <th><app-header-action-field [defaultValue]="'Type'" ></app-header-action-field></th>
+      <th><app-header-action-field [defaultValue]="'Description'" ></app-header-action-field></th>
     </tr>
   </ng-template>
   <ng-template #body let-product>
     <tr>
-      <td>{{ product.code }}</td>
-      <td>{{ product.name }}</td>
-      <td>{{ product.category }}</td>
-      <td>{{ product.quantity }}</td>
+      <td>{{ product.parameter }}</td>
+      <td>{{ product.type }}</td>
+      <td>{{ product.description }}</td>
     </tr>
   </ng-template>
 </p-table>

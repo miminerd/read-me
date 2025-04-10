@@ -1,7 +1,6 @@
 <div class="flex flex-row">
   <form
-    #targetItemContainer
-    data-testid="target-item-container"
+    data-testid="header-item-container"
     [formGroup]="targetForm"
     class="flex w-full align-items-center"
     (click)="onItemClick()"
@@ -13,7 +12,10 @@
     >
       <!--active action content-->
       @if (isEditModeActive()) {
-      <div class="w-full justify-content-end mt-5 pt-2" formGroupName="itemValue">
+      <div
+        class="w-full justify-content-end mt-5 pt-2"
+        formGroupName="itemValue"
+      >
         <app-action-field formControlName="value"></app-action-field>
       </div>
 
