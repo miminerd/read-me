@@ -1,0 +1,19 @@
+Editor
+<div class="section-container">
+  here some things
+
+  <div class="flex flex-row">
+    <form
+      data-testid="section-form"
+      [formGroup]="sectionForm"
+      class="flex w-full align-items-center"
+    >
+      <div
+        class="flex flex-row align-items-center flex-grow-1 pr-2 min-heigh-cell"
+      >
+        <app-action-field formControlName="sectionValue"  ngSkipHydration="true"></app-action-field>
+      </div>
+    </form>
+  </div>
+</div>
+
