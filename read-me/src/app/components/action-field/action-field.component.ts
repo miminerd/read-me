@@ -1,11 +1,4 @@
-import {
-	Component,
-	DestroyRef,
-	EventEmitter,
-	forwardRef,
-	inject,
-	Output,
-} from "@angular/core";
+import { Component, DestroyRef, forwardRef, inject } from "@angular/core";
 import {
 	FormControl,
 	FormGroup,
@@ -18,7 +11,6 @@ import { ButtonModule } from "primeng/button";
 import { TextareaModule } from "primeng/textarea";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { TooltipModule } from "primeng/tooltip";
-import { tap } from "rxjs";
 const noopFn = () => {};
 
 @Component({
@@ -41,9 +33,6 @@ const noopFn = () => {};
 	],
 })
 export class ActionFieldComponent {
-	@Output()
-	readonly clearInput = new EventEmitter();
-
 	readonly textFieldForm = new FormGroup({
 		value: new FormControl<string | undefined>(undefined),
 	});
@@ -51,13 +40,6 @@ export class ActionFieldComponent {
 	private onChange: (value: string | undefined) => void = noopFn;
 	private onTouched: () => void = noopFn;
 	private readonly destroyRef = inject(DestroyRef);
-
-	/*constructor() {
-		document.addEventListener("selectionchange", (e) => {
-			const selection = window.getSelection();
-			console.log("Focus Node - ", selection ? selection.toString() : "");
-		});
-	}*/
 
 	ngOnInit(): void {
 		this.textFieldForm.valueChanges
@@ -91,11 +73,5 @@ export class ActionFieldComponent {
 
 	validate(): ValidationErrors | null {
 		return this.textFieldForm.invalid ? { invalid: true } : null;
-	}
-
-	setDisabledState(isDisabled: boolean): void {
-		if (isDisabled) {
-			this.textFieldForm.disable();
-		}
 	}
 }
