@@ -1,4 +1,5 @@
-import { Injectable } from "@angular/core";
+import { DOCUMENT } from "@angular/common";
+import { Inject, Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 
 @Injectable({
@@ -7,7 +8,7 @@ import { BehaviorSubject } from "rxjs";
 export class SelectionService {
 	private selection$ = new BehaviorSubject<string | null>(null);
 
-	constructor() {
+	constructor(@Inject(DOCUMENT) document: any) {
 		document.addEventListener("selectionchange", () => {
 			const selection = window.getSelection();
 			const text = selection ? selection.toString() : null;
